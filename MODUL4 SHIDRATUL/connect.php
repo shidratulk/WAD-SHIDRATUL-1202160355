@@ -28,10 +28,10 @@ class database{
 			if($remember)
 			{
 				setcookie('email', $email, time() + (60 * 60 * 24 * 5), '/');
-				setcookie('nama', $data_user['nama'], time() + (60 * 60 * 24 * 5), '/');
+				setcookie('password', $data_user['password'], time() + (60 * 60 * 24 * 5), '/');
 			}
 			$_SESSION['email'] = $email;
-			$_SESSION['nama'] = $data_user['nama'];
+			$_SESSION['password'] = $data_user['password'];
 			$_SESSION['is_login'] = TRUE;
 			return TRUE;
 		}
@@ -42,7 +42,7 @@ class database{
 		$query = mysqli_query($this->koneksi,"select * from users where email='$email'");
 		$data_user = $query->fetch_array();
 		$_SESSION['email'] = $email;
-		$_SESSION['nama'] = $data_user['nama'];
+		$_SESSION['password'] = $data_user['password'];
 		$_SESSION['is_login'] = TRUE;
 	}
 } 
